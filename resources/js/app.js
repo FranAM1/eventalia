@@ -3,27 +3,28 @@ import './bootstrap';
 import Alpine from 'alpinejs';
 
 Alpine.store('darkMode', {
-    dark: localStorage.dark ?? false,
+    dark: localStorage.getItem('darkMode') ? JSON.parse(localStorage.getItem('darkMode')) : false,
  
     toggle() {
         this.dark = ! this.dark
 
         if (this.dark) {
-            localStorage.dark = true
             document.documentElement.classList.add('dark')
+            localStorage.setItem('darkMode', true)
         }
         else {
-            localStorage.dark = false
             document.documentElement.classList.remove('dark')
+            localStorage.setItem('darkMode', false)
         }
     }
 
 })
 
-if(localStorage.getItem('dark')) {
-    document.querySelector('html').classList.add('dark')
-}else{
-    document.querySelector('html').classList.remove('dark')
+if (Alpine.store('darkMode').dark) {
+    document.documentElement.classList.add('dark')
+}
+else {
+    document.documentElement.classList.remove('dark')
 }
 
 window.Alpine = Alpine;
