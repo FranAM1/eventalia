@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12 text-black dark:text-white flex flex-col  lg:flex-row items-center justify-center">
+    <div class="py-12 text-black dark:text-white flex flex-col  lg:flex-row items-center justify-center gap-8">
         <div class="max-w-7xl sm:px-6 lg:px-8">
             <h1 class="text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r
              from-blue-600 via-blue-400 to-blue-600
@@ -14,13 +14,21 @@
              ">EVENTALIA</h1>
             <h1 class="text-4xl lg:text-5xl font-bold text-center lg:text-start">EVENTOS DE TODO TIPO</h1>
         </div>
-        <img src="./images/eventosInicio.png" alt="" class="lg:w-1/2">
+        <img src="./images/eventoInicio.png" class="p-4">
     </div>
-    <div class="flex justify-center py-12 bg-gray-300 dark:bg-gray-800">
-        <h1 class="text-blue-600 dark:text-yellow-600 text-4xl font-bold">¿Buscas un planazo en tu ciudad?</h1>
+    <div class="flex flex-col items-center gap-8 justify-center py-12 bg-gray-300 dark:bg-gray-800 p-4">
+        <h1 class="text-blue-600 dark:text-yellow-500 text-4xl font-bold">¿Buscas un planazo en tu ciudad?</h1>
+        <div class=flex>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Autonomous_communities_of_Spain.svg" alt="" 
+            class="bg-gray-100 dark:bg-gray-600 rounded-xl border-black dark:border-white border-2 p-2 border-dashed">
+
+        </div>
     </div>
     <div class="py-12 flex justify-center flex-col gap-4 items-center">
-        <h1 class="text-blue-600 dark:text-yellow-600 text-4xl font-bold">¿Quieres crear anunciar tu propio evento?</h1>
+        <h1 class="text-blue-600 dark:text-yellow-500 text-4xl font-bold">¿Quieres crear y publicar tu propio evento?</h1>
         <p class="dark:text-white"><strong>Eventalia</strong> puede ayudarte a difundir cualquier tipo de evento, ya sea un concierto, taller, curso, congreso o cualquier otra actividad.</p>
+        <x-primary-button>
+            <a>Crear evento</a>
+        </x-button>
     </div>
 </x-app-layout>
