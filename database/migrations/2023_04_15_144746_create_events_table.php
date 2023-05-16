@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('description');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
-            $table->foreignId('location_id')->constrained()->onDelete('cascade');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('image');
+            $table->string('address');
+            $table->foreignId('province_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
         });
     }
 
