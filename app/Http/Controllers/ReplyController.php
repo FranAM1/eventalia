@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Comment;
 use Illuminate\Http\Request;
+use App\Models\Reply;
 
-class CommentController extends Controller
+class ReplyController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public static function index(String $comment_id)
     {
-        $comments = Comment::with('user', 'replies')->latest()->get();
+        $replies = Reply::where('comment_id', $comment_id)->get();
 
-        return view('comments', ['comments' => $comments]);
+        return ['replies' => $replies];
     }
 
     /**
@@ -22,7 +22,7 @@ class CommentController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -34,12 +34,13 @@ class CommentController extends Controller
             'content' => 'required|string|max:255',
         ]);
 
-        $comment = Comment::create([
+        $reply = Reply::create([
             'user_id' => auth()->id(),
             'content' => $request->content,
+            'comment_id' => $request->comment_id,
         ]);
 
-        $comment->save();
+        $reply->save();
 
         return redirect()->back();
     }
@@ -47,11 +48,9 @@ class CommentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Comment $comment)
+    public function show(string $id)
     {
-        $replies = ReplyController::index($comment->id);
-
-        return view('comment', ['comment' => $comment], $replies);
+        //
     }
 
     /**
@@ -59,7 +58,7 @@ class CommentController extends Controller
      */
     public function edit(string $id)
     {
-        
+        //
     }
 
     /**
@@ -67,16 +66,16 @@ class CommentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Comment $comment)
+    public function destroy(Reply $reply)
     {
-        $comment->delete();
+        $reply->delete();
 
-        return redirect()->back(); 
+        return redirect()->back();
     }
 }

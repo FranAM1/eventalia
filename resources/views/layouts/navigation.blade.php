@@ -15,13 +15,20 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Inicio') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('comment.index')" :active="request()->routeIs('comment.index')">
+                        {{ __('Comentarios') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('event.create')" :active="request()->routeIs('event.create')">
+                        {{ __('Crear Evento') }}
+                    </x-nav-link>
                 </div>
             </div>
-            <div class="flex items-center justify-center">
+            <div class="flex items-center justify-center sm:hidden">
                 <x-toggle-theme />
             </div>
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6 gap-4">
+                <x-toggle-theme />
                 @guest
                 <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
                     {{ __('Iniciar sesión') }}
@@ -88,8 +95,14 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+            <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                {{ __('Inicio') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('comment.index')" :active="request()->routeIs('comment.index')">
+                {{ __('Comentarios') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('event.create')" :active="request()->routeIs('event.create')">
+                {{ __('Crear Evento') }}
             </x-responsive-nav-link>
         </div>
 
