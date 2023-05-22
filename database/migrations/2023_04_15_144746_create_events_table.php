@@ -21,7 +21,9 @@ return new class extends Migration
             $table->string('image');
             $table->string('address');
             $table->foreignId('province_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('city_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->nullable()->constrained()->onDelete('cascade');
         });
     }
 

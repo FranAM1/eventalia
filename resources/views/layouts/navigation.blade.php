@@ -15,11 +15,11 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Inicio') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('comment.index')" :active="request()->routeIs('comment.index')">
-                        {{ __('Comentarios') }}
-                    </x-nav-link>
                     <x-nav-link :href="route('event.create')" :active="request()->routeIs('event.create')">
                         {{ __('Crear Evento') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('event.index')" :active="request()->routeIs('event.index')">
+                        {{ __('Eventos') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -98,11 +98,11 @@
             <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
                 {{ __('Inicio') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('comment.index')" :active="request()->routeIs('comment.index')">
-                {{ __('Comentarios') }}
-            </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('event.create')" :active="request()->routeIs('event.create')">
                 {{ __('Crear Evento') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('event.index')" :active="request()->routeIs('event.index')">
+                {{ __('Eventos') }}
             </x-responsive-nav-link>
         </div>
 

@@ -11,29 +11,28 @@
         <img src="./images/eventoInicio.png" class="p-4">
     </div>
     <div class="flex flex-col items-center gap-8 justify-center py-12 bg-gray-300 dark:bg-gray-800 p-4 w-full">
-        <h1 class="text-blue-600 dark:text-yellow-500 text-4xl font-bold">¿Buscas un planazo en tu ciudad?</h1>
-        <div class="flex justify-around w-full">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Autonomous_communities_of_Spain.svg" alt="" 
-            class="bg-gray-100 dark:bg-gray-600 rounded-xl border-black dark:border-white border-2 p-2 border-dashed">
-            <div class="flex flex-col gap-4 h-full">
-                <ul class="flex flex-col justify-between items-center">
-                    <li class="dark:text-white">Conciertos</li>
-                    <li class="dark:text-white">Talleres</li>
-                    <li class="dark:text-white">Cursos</li>
-                    <li class="dark:text-white">Congresos</li>
+        <h1 class="text-blue-600 dark:text-yellow-500 text-4xl font-bold text-center">¿Buscas un planazo en tu ciudad?</h1>
+        <div class="flex flex-col md:flex-row items-center justify-around w-full">
+                <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 w-full p-8">
+                    @foreach($provinces as $province)
+                    <li class="flex flex-col items-center">
+                        <h3 class="text-4xl font-bold">{{ $province->province_name }}</h3>
+                        @foreach($province->cities->take(3) as $city)
+                            <p class="text-blue-600 dark:text-yellow-500 hover:underline cursor-pointer font-bold">- {{ $city->city_name }}</p>
+                        @endforeach
+                    </li>
+                    @endforeach
                 </ul>
-                <x-primary-button>
-                    <a>Ver los eventos de tu ciudad</a>
-                </x-button>
-            </div>
-
         </div>
+        <x-link-button>
+            Ver todas las ciudades
+        </x-link-button>
     </div>
-    <div class="py-12 flex justify-center flex-col gap-4 items-center">
+    <div class="p-12 text-center flex justify-center flex-col gap-4 items-center">
         <h1 class="text-blue-600 dark:text-yellow-500 text-4xl font-bold">¿Quieres crear y publicar tu propio evento?</h1>
         <p class="dark:text-white"><strong>Eventalia</strong> puede ayudarte a difundir cualquier tipo de evento, ya sea un concierto, taller, curso, congreso o cualquier otra actividad.</p>
-        <x-primary-button>
-            <a>Crear evento</a>
-        </x-button>
+        <x-link-button :href="route('event.create')">
+            Crear evento
+        </x-link-button>
     </div>
 </x-app-layout>
