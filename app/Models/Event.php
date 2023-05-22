@@ -15,8 +15,39 @@ class Event extends Model
         'start_date',
         'end_date',
         'image',
-        'location_id',
+        'address',
+        'city_id',
+        'province_id',
+        'category_id',
         'user_id'
     ];
 
+    public function province()
+    {
+        return $this->belongsTo(Province::class);
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function participants()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
