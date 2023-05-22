@@ -36,4 +36,3 @@ Nuestra aplicación es una herramienta que te permite crear y gestionar eventos 
 ### 1.1 Objetivo
 
 El resultado de este proyecto debiera entregar una aplicación web de eventos. Dicha aplicación deberá ser capaz de resolver las necesidades básicas relacionadas para una persona que quiera buscar y apuntarse a un evento. Dicha aplicación implicará un _front end_ (HTML, CSS y JavaScript) y un _back end_ (PHP, PgSQL), abarcando ambos frentes con el framework de Laravel en la versión 9 _full stack_.
-
