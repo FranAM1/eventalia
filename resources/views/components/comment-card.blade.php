@@ -11,12 +11,9 @@
 
 <div class="row-start-3 col-start-3 flex gap-4 flex-wrap self-end justify-self-end">
     @auth
-    <form action="{{ route('comment.show', $comment) }}" class="">
-        @csrf
-        <x-primary-button>
-            Responder
-        </x-primary-button>
-    </form>
+    <x-link-button :href="route('comment.show', $comment)">
+        Responder
+    </x-link-button>
     @endauth
 
     @if (auth()->user()->id == $comment->user_id)

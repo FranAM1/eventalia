@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Models\Province;
+
 
 class EventController extends Controller
 {
@@ -13,6 +16,8 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::all();
+
+        return view('events', compact('events'));
     }
 
     /**
@@ -20,7 +25,10 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('createEvent');
+        $categories = Category::all();
+        $provinces = Province::all();
+
+        return view('createEvent', compact('categories', 'provinces'));
     }
 
     /**
@@ -31,24 +39,34 @@ class EventController extends Controller
         $request->validate([
             'name' => 'required|string',
             'description' => 'required|string',
+            'address' => 'required|string',
+            'category' => 'required|integer',
+            'province' => 'required|integer',
+            'city' => 'required|integer',
             'start_date' => 'required|date|after:today|before:end_date',
             'end_date' => 'required|date|after:start_date',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        // Store image
         $imageName = time().$request->image->getClientOriginalName();
-        $request->image->move(public_path('images/events'), $imageName);
+        
 
         $event = Event::create([
             'name' => $request->name,
             'description' => $request->description,
+            'address' => $request->address,
+            'category_id' => $request->category,
+            'province_id' => $request->province,
+            'city_id' => $request->city,
+            'user_id' => auth()->user()->id,
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
             'image' => $imageName,
         ]);
 
         $event->save();
+
+        $request->image->move(public_path('images/events'), $imageName);
 
         return redirect()->back();   
     }
@@ -58,7 +76,10 @@ class EventController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $event = Event::find($id);
+        $comments = $event->comments;
+
+        return view('showEvent', compact('event', 'comments'));
     }
 
     /**
