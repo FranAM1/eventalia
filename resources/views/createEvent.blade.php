@@ -1,15 +1,25 @@
 <x-app-layout>
     @if(auth()->user()->role_id != null)
     <form action="{{ route('event.store') }}" method="POST"
-        class="flex flex-col gap-4 my-8 justify-center items-center w-1/2" enctype="multipart/form-data">
+        class="flex flex-col gap-4 my-8 justify-center items-center w-full  p-4 md:w-1/2" enctype="multipart/form-data">
         @csrf
-        <div class="flex flex-col items-start font-bold w-full">
-            <label for="name">Nombre del evento: </label>
-            <input type="text" name="name" id="name" value="{{ old('name') }}"
-                class="text-black border-gray-500 rounded-sm w-full border-2">
-            @error('name')
-            <p class="text-red-500">{{ $message }}</p>
-            @enderror
+        <div class="grid grid-cols-2 gap-4 items-start font-bold w-full">
+            <section>
+                <label for="name">Nombre del evento: </label>
+                <input type="text" name="name" id="name" value="{{ old('name') }}"
+                    class="text-black border-gray-500 rounded-sm w-full border-2">
+                @error('name')
+                <p class="text-red-500">{{ $message }}</p>
+                @enderror
+            </section>
+            <section>
+                <label for="max_participants">Max. Participantes: </label>
+                <input type="number" name="max_participants" id="max_participants" value="{{ old('max_participants') }}"
+                    class="text-black border-gray-500 rounded-sm w-full border-2">
+                @error('max_participants')
+                <p class="text-red-500">{{ $message }}</p>
+                @enderror
+            </section>
         </div>
         <div class="flex flex-col items-start font-bold w-full">
             <label for="description">Descripción del evento: </label>
@@ -118,7 +128,7 @@
             $("#city").html('');
             $.ajax({
                 url: "{{ route('getcities') }}",
-                type: "POST",
+                type: "GET",
                 data: {
                     province_id: province_id,
                     _token: '{{ csrf_token() }}'

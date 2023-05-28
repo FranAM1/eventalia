@@ -32,16 +32,20 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/subscribe', [RoleController::class, 'subscribe'])->name('subscribe');
-    Route::post('/getcities', [CityController::class, 'getCities'])->name('getcities');
     Route::resource('comment', CommentController::class)->except(['index']);
     Route::resource('reply', ReplyController::class);
-    Route::resource('event', EventController::class);
+    Route::resource('event', EventController::class)->except(['index']);
     Route::resource('province', ProvinceController::class);
-    
+    Route::get('/event/{id}/subscribe', [EventController::class, 'subscribe'])->name('event.subscribe');
+    Route::get('/event/{id}/unsubscribe', [EventController::class, 'unsubscribe'])->name('event.unsubscribe');
 });
+
+Route::get('/event', [EventController::class, 'index'])->name('event.index');
 
 Route::fallback(function () {
     return redirect('/');
 });
+
+Route::get('/getcities', [CityController::class, 'getCities'])->name('getcities');
 
 require __DIR__.'/auth.php';

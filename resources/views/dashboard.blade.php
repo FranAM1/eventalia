@@ -1,8 +1,8 @@
 <x-app-layout>
     <div class="py-12 text-black dark:text-white flex flex-col  lg:flex-row items-center justify-center gap-8">
         <div class="max-w-7xl sm:px-6 lg:px-8">
-            <h1 class="text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r
-             from-blue-600 via-blue-400 to-blue-600
+            <h1 class="text-6xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r
+                from-blue-600 via-blue-400 to-blue-600
                 dark:from-yellow-600 dark:via-orange-400 dark:to-yellow-600
                 text-center lg:text-start
              ">EVENTALIA</h1>
@@ -18,14 +18,17 @@
                     <li class="flex flex-col items-center">
                         <h3 class="text-4xl font-bold">{{ $province->province_name }}</h3>
                         @foreach($province->cities->take(3) as $city)
-                            <p class="text-blue-600 dark:text-yellow-500 hover:underline cursor-pointer font-bold">- {{ $city->city_name }}</p>
+                            <a href="{{ route('event.index', ['province' => $province->id, 'city' => $city->id]) }}"
+                            class="text-blue-600 dark:text-yellow-500 hover:underline cursor-pointer font-bold">
+                            - {{ $city->city_name }}
+                        </a>
                         @endforeach
                     </li>
                     @endforeach
                 </ul>
         </div>
-        <x-link-button>
-            Ver todas las ciudades
+        <x-link-button :href="route('event.index')">
+            Ver todos los eventos
         </x-link-button>
     </div>
     <div class="p-12 text-center flex justify-center flex-col gap-4 items-center">
