@@ -46,11 +46,11 @@
                     </div>
                 </section>
                 <section class="flex gap-4 items-center justify-center">
-                    <div class="flex gap-4 items-center">
-                        <x-icon-user style="w-10 h-10" />
+                    <div class="flex gap-2 items-center">
+                        <x-icon-participants style="w-10 h-10" />
                         {{ $event->getNumberParticipants() }}
-                        <p>-</p>
-                        <x-icon-user style="w-10 h-10" />
+                        <p class="mx-4">-</p>
+                        <x-icon-participants style="w-10 h-10" />
                         {{ $event->max_participants }}
                     </div>
                 </section>
