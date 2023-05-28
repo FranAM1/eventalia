@@ -46,23 +46,18 @@ A continuación se detallan los requisitos funcionales para cada parte interesad
 #### **Usuario_Anónimo**
 
 - RF_Usuario_Anónimo_01: Buscar evento
-  - Acceder a base de datos para ver datos de evento
-- RF_Usuario_Anónimo_02: Realizar venta
-  - Se actualiza el stock
-- RF_Usuario_Anónimo_03: Realizar devolución
-  - Actualizar stock
 
 #### **Usuario_Registrado**
 
-- RF_Usuario_Registrado_01: Añadir evento
-- RF_Usuario_Registrado_02: Eliminar evento
+- RF_Usuario_Registrado_01: Buscar evento 
+- RF_Usuario_Registrado_02: Añadir evento 
 - RF_Usuario_Registrado_03: Modificar datos evento
-- RF_Usuario_Registrado_04: Buscar evento - Acceder a base de datos para ver datos de evento
+- RF_Usuario_Registrado_04:  Eliminar evento
 
 #### **Super usuario**
 
 - RF_SuperUsuario_01: Buscar evento
 - RF_SuperUsuario_02: Añadir evento
-- RF_SuperUsuario_03: Eliminar evento
-- RF_SuperUsuario_04: Modificar datos evento
+- RF_SuperUsuario_03: Modificar datos evento
+- RF_SuperUsuario_04: Eliminar evento
 - RF_SuperUsuario_07: Ver estadísticas del evento
