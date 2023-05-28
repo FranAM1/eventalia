@@ -20,6 +20,7 @@ return new class extends Migration
             $table->dateTime('end_date');
             $table->string('image');
             $table->string('address');
+            $table->integer('max_participants');
             $table->foreignId('province_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('city_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');

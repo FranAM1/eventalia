@@ -16,7 +16,7 @@ class RoleController extends Controller
     public function subscribe()
     {
         $user = User::find(auth()->user()->id);
-        $role = Role::where('role_name', 'subscriber')->first();
+        $role = Role::where('role_name', 'Suscriptor')->first();
 
         $user->update(['role_id' => $role->id]);
 
