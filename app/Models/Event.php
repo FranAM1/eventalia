@@ -16,10 +16,16 @@ class Event extends Model
         'end_date',
         'image',
         'address',
+        'max_participants',
         'city_id',
         'province_id',
         'category_id',
         'user_id'
+    ];
+
+    protected $casts = [
+        'start_date' => 'datetime',
+        'end_date' => 'datetime',
     ];
 
     public function province()
@@ -49,5 +55,15 @@ class Event extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function getNumberParticipants()
+    {
+        return $this->participants()->count();
+    }
+
+    public function isFull()
+    {
+        return $this->getNumberParticipants() >= $this->max_participants;
     }
 }
