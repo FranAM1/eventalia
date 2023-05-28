@@ -36,3 +36,33 @@ Nuestra aplicación es una herramienta que te permite crear y gestionar eventos 
 ### 1.1 Objetivo
 
 El resultado de este proyecto debiera entregar una aplicación web de eventos. Dicha aplicación deberá ser capaz de resolver las necesidades básicas relacionadas para una persona que quiera buscar y apuntarse a un evento. Dicha aplicación implicará un _front end_ (HTML, CSS y JavaScript) y un _back end_ (PHP, PgSQL), abarcando ambos frentes con el framework de Laravel en la versión 9 _full stack_.
+
+### 2 Requisitos
+
+A continuación se detallan los requisitos funcionales para cada parte interesada y, seguidamente, los requisitos no funcionales y de sistema.
+
+### 2.1 Funcionales
+
+#### **Usuario_Anónimo**
+
+- RF_Usuario_Anónimo_01: Buscar evento
+  - Acceder a base de datos para ver datos de evento
+- RF_Usuario_Anónimo_02: Realizar venta
+  - Se actualiza el stock
+- RF_Usuario_Anónimo_03: Realizar devolución
+  - Actualizar stock
+
+#### **Usuario_Registrado**
+
+- RF_Usuario_Registrado_01: Añadir evento
+- RF_Usuario_Registrado_02: Eliminar evento
+- RF_Usuario_Registrado_03: Modificar datos evento
+- RF_Usuario_Registrado_04: Buscar evento - Acceder a base de datos para ver datos de evento
+
+#### **Super usuario**
+
+- RF_SuperUsuario_01: Buscar evento
+- RF_SuperUsuario_02: Añadir evento
+- RF_SuperUsuario_03: Eliminar evento
+- RF_SuperUsuario_04: Modificar datos evento
+- RF_SuperUsuario_07: Ver estadísticas del evento
