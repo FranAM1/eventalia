@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Province;
 use App\Models\City;
-
+use Carbon\Carbon;
 
 class EventController extends Controller
 {
@@ -17,7 +17,9 @@ class EventController extends Controller
      */
     public function index(Request $request)
     {
-        $events = Event::all();
+        $currentDate = Carbon::now();
+        $events = Event::all()->sortByDesc('start_date');
+        
         $categories = Category::all();
         $provinces = Province::all();
 
@@ -34,7 +36,6 @@ class EventController extends Controller
         if ($request->has('city') && $request->city != 0) {
             $events = $events->where('city_id', $request->city);
         }
-
 
         return view('events', compact('events', 'categories', 'provinces'));
     }
@@ -55,7 +56,13 @@ class EventController extends Controller
      */
     public function store(EventRequest $request)
     {
-        $imageName = time().$request->image->getClientOriginalName();
+        if($request->hasFile('image')){
+            $imageName = time().$request->image->getClientOriginalName();
+        }
+        else{
+            $imageName = 'default.jpg';
+        }
+        
         
 
         $event = Event::create([
@@ -74,9 +81,12 @@ class EventController extends Controller
 
         $event->save();
 
-        $request->image->move(public_path('images/events'), $imageName);
+        if($request->hasFile('image')){
+            $request->image->move(public_path('images/events'), $imageName);
+        }
+        
 
-        return redirect()->back();   
+        return redirect()->back()->with('success', 'Evento creado correctamente ✔');;   
     }
 
     /**
@@ -95,15 +105,46 @@ class EventController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $event = Event::find($id);
+        $categories = Category::all();
+        $provinces = Province::all();
+
+        return view('editEvent', compact('event', 'categories', 'provinces'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(EventRequest $request, string $id)
     {
-        //
+        $event = Event::find($id);
+
+        if($request->hasFile('image')){
+            $imageName = time().$request->image->getClientOriginalName();
+        }else{
+            $imageName = $event->image;
+        }
+        
+
+        $event->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'address' => $request->address,
+            'category_id' => $request->category,
+            'province_id' => $request->province,
+            'city_id' => $request->city,
+            'max_participants' => $request->max_participants,
+            'user_id' => auth()->user()->id,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'image' => $imageName,
+        ]);
+
+        if($request->hasFile('image')){
+            $request->image->move(public_path('images/events'), $imageName);
+        }
+
+        return redirect()->back()->with('success', 'Evento editado correctamente ✔');
     }
 
     /**
@@ -111,12 +152,20 @@ class EventController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $event = Event::find($id);
+        $event->delete();
+
+        return redirect()->route('event.index')->with('success', 'Evento eliminado correctamente ✔');
     }
 
     public function subscribe(string $id)
     {
         $event = Event::find($id);
+
+        if($event->isActive() || $event->isFull() || $event->isFinished()){
+            return redirect()->back();
+        }
+
         $event->participants()->attach(auth()->user()->id);
 
         return redirect()->back();

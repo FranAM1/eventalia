@@ -1,7 +1,6 @@
 <x-app-layout>
     <div class="py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-10">
-            {{-- create filter section --}}
             <form action="" method="GET" class="w-full flex gap-4 items-center">
                 <label for="category">Categoría</label>
                 <select name="category" id="category" class="w-1/4 text-black">
@@ -38,6 +37,8 @@
                         @endforeach
                     @endif
                 </select>
+
+                
 
                 
                 </select>
