@@ -50,14 +50,21 @@ A continuación se detallan los requisitos funcionales para cada parte interesad
 #### **Usuario_Registrado**
 
 - RF_Usuario_Registrado_01: Buscar evento 
-- RF_Usuario_Registrado_02: Añadir evento 
-- RF_Usuario_Registrado_03: Modificar datos evento
-- RF_Usuario_Registrado_04:  Eliminar evento
+- RF_Usuario_Registrado_02: Apuntarse a evento 
+- RF_Usuario_Registrado_03: Añadir comentario
+- RF_Usuario_Registrado_04: Eliminar su comentario
 
-#### **Super usuario**
+#### **Usuario_Suscriptor**
+- RF_Usuario_Suscriptor_01: Buscar evento 
+- RF_Usuario_Suscriptor_01: Apuntarse a eventos 
+- RF_Usuario_Suscriptor_02: Añadir evento 
+- RF_Usuario_Suscriptor_03: Modificar su evento
+- RF_Usuario_Suscriptor_04: Eliminar su evento
 
-- RF_SuperUsuario_01: Buscar evento
-- RF_SuperUsuario_02: Añadir evento
-- RF_SuperUsuario_03: Modificar datos evento
-- RF_SuperUsuario_04: Eliminar evento
-- RF_SuperUsuario_07: Ver estadísticas del evento
+#### **Super_Usuario**
+
+- RF_Super_Usuario_01: Buscar evento
+- RF_Super_Usuario_02: Añadir evento
+- RF_Super_Usuario_03: Modificar datos evento
+- RF_Super_Usuario_04: Eliminar evento
+- RF_Super_Usuario_05: Ver estadísticas del evento
