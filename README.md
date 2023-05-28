@@ -112,6 +112,6 @@ Como ha sido mencionado anteriormente, este proyecto esta hecho con laravel por 
 
 - El sistema de control de versiones del proyecto es `git`, usando como repositorio principal la plataforma GitHub.
 
-### Diagrama de clases
+### 4 Diagrama de clases
 <img style="width:700px;margin-left:50px" src="public/images/diagramas/DiagramaClasesEventalia.PNG">
 
