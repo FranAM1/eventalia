@@ -73,7 +73,7 @@ A continuación se detallan los requisitos funcionales para cada parte interesad
 - RF_Usuario_Suscriptor_03: Modificar su evento
 - RF_Usuario_Suscriptor_04: Eliminar su evento
 
-#### **Super_Usuario**
+#### **Admin**
 
 - RF_Admin_01: Buscar evento
 - RF_Admin_02: Añadir evento
