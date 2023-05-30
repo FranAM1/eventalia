@@ -8,24 +8,26 @@
 - [Eventalia](#eventalia)
     - [Aplicación web para para eventos](#aplicación-web-para-para-eventos)
     - [Índice](#índice)
-  - [1 Introducción](#1-introducción)
+  - [0 Introducción](#0-introducción)
   - [1 Objetivo](#1-objetivo)
   - [2 Requisitos](#2-requisitos)
   - [2.1 Funcionales](#21-funcionales)
       - [**Usuario\_Anónimo**](#usuario_anónimo)
       - [**Usuario\_Registrado**](#usuario_registrado)
       - [**Usuario\_Suscriptor**](#usuario_suscriptor)
-      - [**Super\_Usuario**](#super_usuario)
+      - [**Usuario\_Admin**](#usuario_admin)
   - [3 Tecnologías](#3-tecnologías)
     - [3.1 Lenguajes de programación y marcado.](#31-lenguajes-de-programación-y-marcado)
     - [3.2 Servidores](#32-servidores)
     - [3.3 SGBD](#33-sgbd)
     - [3.4 IDEs y editores de texto](#34-ides-y-editores-de-texto)
     - [3.5 Control de versiones](#35-control-de-versiones)
+  - [4 Diagrama de clases](#4-diagrama-de-clases)
+  - [5 Despliegue](#5-despliegue)
 
 ---
 
-## 1 Introducción
+## 0 Introducción
 
 Nuestra aplicación es una herramienta que te permite crear y gestionar eventos de manera sencilla y eficiente. Con esta aplicación, podrás organizar eventos de todo tipo, desde conferencias y reuniones hasta fiestas y conciertos. A continuación, te presentamos algunas de las características clave de nuestra aplicación:
 
@@ -65,21 +67,24 @@ A continuación se detallan los requisitos funcionales para cada parte interesad
 - RF_Usuario_Registrado_02: Apuntarse a evento 
 - RF_Usuario_Registrado_03: Añadir comentario
 - RF_Usuario_Registrado_04: Eliminar su comentario
+- RF_Usuario_Registrado_05: Suscribirse
 
 #### **Usuario_Suscriptor**
 - RF_Usuario_Suscriptor_01: Buscar evento 
-- RF_Usuario_Suscriptor_01: Apuntarse a eventos 
-- RF_Usuario_Suscriptor_02: Añadir evento 
-- RF_Usuario_Suscriptor_03: Modificar su evento
-- RF_Usuario_Suscriptor_04: Eliminar su evento
+- RF_Usuario_Suscriptor_02: Apuntarse a eventos 
+- RF_Usuario_Suscriptor_03: Añadir evento 
+- RF_Usuario_Suscriptor_04: Modificar su evento
+- RF_Usuario_Suscriptor_05: Eliminar su evento
+- RF_Usuario_Suscriptor_06: Añadir comentario
 
-#### **Admin**
+#### **Usuario_Admin**
 
 - RF_Admin_01: Buscar evento
 - RF_Admin_02: Añadir evento
-- RF_Admin_03: Modificar datos evento
-- RF_Admin_04: Eliminar evento
-- RF_Admin_05: Ver estadísticas del evento
+- RF_Admin_03: Modificar datos de cualquier evento
+- RF_Admin_04: Eliminar cualquier evento
+- RF_Admin_05: Eliminar cualquier comentario
+- RF_Admin_06: Añadir comentario
 
 ## 3 Tecnologías
 
@@ -114,4 +119,8 @@ Como ha sido mencionado anteriormente, este proyecto esta hecho con laravel por 
 
 ### 4 Diagrama de clases
 <img style="width:700px;margin-left:50px" src="public/images/diagramas/DiagramaClasesEventalia.PNG">
+
+### 5 Despliegue
+[Link](http://eventalia.randion.es/)
+
 
