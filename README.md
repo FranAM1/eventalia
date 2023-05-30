@@ -75,11 +75,11 @@ A continuación se detallan los requisitos funcionales para cada parte interesad
 
 #### **Super_Usuario**
 
-- RF_Super_Usuario_01: Buscar evento
-- RF_Super_Usuario_02: Añadir evento
-- RF_Super_Usuario_03: Modificar datos evento
-- RF_Super_Usuario_04: Eliminar evento
-- RF_Super_Usuario_05: Ver estadísticas del evento
+- RF_Admin_01: Buscar evento
+- RF_Admin_02: Añadir evento
+- RF_Admin_03: Modificar datos evento
+- RF_Admin_04: Eliminar evento
+- RF_Admin_05: Ver estadísticas del evento
 
 ## 3 Tecnologías
 
