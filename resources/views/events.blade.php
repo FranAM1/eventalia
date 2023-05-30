@@ -1,9 +1,9 @@
 <x-app-layout>
     <div class="py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-10">
-            <form action="" method="GET" class="w-full flex gap-4 items-center">
+            <form action="" method="GET" class="w-full flex flex-col md:flex-row gap-4 items-center">
                 <label for="category">Categoría</label>
-                <select name="category" id="category" class="w-1/4 text-black">
+                <select name="category" id="category" class="w-full md:w-1/4 text-black">
                     <option value="">Todas</option>
                     @foreach ($categories as $category)
                         <option class="text-black"
@@ -14,7 +14,7 @@
                 </select>   
 
                 <label for="province">Provincia</label>
-                <select name="province" id="province" class="w-1/4 text-black">
+                <select name="province" id="province" class="w-full md:w-1/4 text-black">
                     <option value="">Todas las provincias</option>
                     @foreach ($provinces as $province)
                         <option class="text-black"
@@ -25,7 +25,7 @@
                 </select>
 
                 <label for="city">Ciudad</label>
-                <select name="city" id="city" class="w-1/4 text-black">
+                <select name="city" id="city" class="w-full md:w-1/4 text-black">
                     <option value="">Todas</option>
                     {{-- cities of selected province --}}
                     @if(request('province'))
