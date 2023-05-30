@@ -71,9 +71,9 @@ class User extends Authenticatable
     public function isAdmin()
     {
         //check if user has role  
-        if($this->role === null) return false;
+        if($this->role_id === null) return false;
 
-        return $this->role->name === 'Admin' ;
+        return $this->role->role_name === 'Admin' ;
     }
 
     public function isRegisteredToEvent(Event $event)
