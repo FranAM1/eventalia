@@ -12,22 +12,28 @@
         <p class="text-base">
             {{ $event->description }}
         </p>
-        <div class="flex gap-4 items-center justify-center">
-            @if($event->isFinished())
-                <div class="text-center font-bold">🔴</div>
-            @elseif($event->isActive())
-                <div class="text-center font-bold">🟠</div>
-            @elseif($event->isFull())
-                <div class="text-center font-bold">⚫</div>
-            @else
-                <div class="text-center font-bold">🟢</div>
-            @endif
-            <div class="text-center font-bold">{{ $event->getNumberParticipants() }} / {{ $event->max_participants }}</div>
-            @auth
-                @if($event->isUserRegistered(auth()->user()))
-                    <div class="text-center font-bold">✔</div>
+        <div class="flex gap-2 items-center justify-between">
+            <div class="flex gap-2 items-center justify-center">
+                @if($event->isFinished())
+                    <div class="text-center font-bold">🔴</div>
+                @elseif($event->isActive())
+                    <div class="text-center font-bold">🟠</div>
+                @elseif($event->isFull())
+                    <div class="text-center font-bold">⚫</div>
+                @else
+                    <div class="text-center font-bold">🟢</div>
                 @endif
-            @endauth
+                <div class="text-center font-bold">{{ $event->getNumberParticipants() }} / {{ $event->max_participants }}</div>
+                @auth
+                    @if($event->isUserRegistered(auth()->user()))
+                        <div class="text-center font-bold">✔</div>
+                    @endif
+                @endauth
+            </div>
+            <div class="flex gap-2 items-center justify-center">
+                <div class="text-center font-bold">📅</div>
+                <div class="text-center font-bold">{{ $event->start_date->format('d/m/Y-H:i') }}</div>
+            </div>
         </div>
         <hr class="border-1 border-gray-500 opacity-50" />
         <div class="flex gap-4 self-center">

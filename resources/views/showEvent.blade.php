@@ -81,16 +81,20 @@
                         </a>
                     @endif
                     @if(auth()->user()->isOwnerOfEvent($event) || auth()->user()->isAdmin())
+                        @if(!$event->isActive() && !$event->isFinished())
                         <a href="{{ route('event.edit', $event) }}" class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded w-fit self-center transition-colors">
                             Editar
                         </a>
-                        <form action="{{ route('event.destroy', $event) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded w-fit self-center transition-colors">
-                                Eliminar
-                            </button>
-                        </form>
+                        @endif
+                        @if(!$event->isActive())
+                            <form action="{{ route('event.destroy', $event) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded w-fit self-center transition-colors">
+                                    Eliminar
+                                </button>
+                            </form>
+                        @endif
                     @endif
                 </div>
                     

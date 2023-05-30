@@ -5,7 +5,7 @@
         </h2>
 
         <p class="font-bold">
-            {{ __('Role') }}: {{ $user->role->role_name ?? 'User'}}
+            {{ __('Rol') }}: {{ $user->role->role_name ?? 'User'}}
         </p>
 
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">

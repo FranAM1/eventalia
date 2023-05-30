@@ -123,7 +123,7 @@
         </x-primary-button>
     </form>
     @else
-    <div class="flex flex-col items-center justify-center mt-8 p-4">
+    <div class="flex flex-col items-center justify-center mt-8 p-4 gap-4">
         <h1 class="text-4xl font-bold text-center">No tienes permisos para crear eventos</h1>
         <p class="text-xl text-blue-500 font-bold  dark:text-yellow-600">Tienes que estar suscrito para poder crear
             eventos</p>
