@@ -1,12 +1,11 @@
 # Eventalia
-### Aplicación web para para eventos
+### Aplicación web para eventos
 
 ---
 
 ### Índice
 
 - [Eventalia](#eventalia)
-    - [Aplicación web para para eventos](#aplicación-web-para-para-eventos)
     - [Índice](#índice)
   - [0 Introducción](#0-introducción)
   - [1 Objetivo](#1-objetivo)
