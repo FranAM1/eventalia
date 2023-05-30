@@ -6,7 +6,7 @@
 
 
 <div class="row-start-3 col-start-3 flex gap-4 flex-wrap self-end justify-self-end">
-    @if (auth()->user()->id == $reply->user_id)
+    @if (auth()->user()->id == $reply->user_id || auth()->user()->isAdmin())
     <form action="{{ route('reply.destroy', $reply) }}" method="POST" class="">
         @csrf
         @method('DELETE')

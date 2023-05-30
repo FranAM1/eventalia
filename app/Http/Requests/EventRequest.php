@@ -31,7 +31,7 @@ class EventRequest extends FormRequest
             'city' => 'required|integer',
             'start_date' => 'required|date|after:today|before:end_date',
             'end_date' => 'required|date|after:start_date',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ];
     }
 }

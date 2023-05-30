@@ -68,8 +68,21 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
+    public function isAdmin()
+    {
+        //check if user has role  
+        if($this->role_id === null) return false;
+
+        return $this->role->role_name === 'Admin' ;
+    }
+
     public function isRegisteredToEvent(Event $event)
     {
         return $this->eventsAsParticipant->contains($event);
+    }
+
+    public function isOwnerOfEvent(Event $event)
+    {
+        return $this->id === $event->user_id;
     }
 }

@@ -16,7 +16,7 @@
     </x-link-button>
     @endauth
 
-    @if (auth()->user()->id == $comment->user_id)
+    @if (auth()->user()->id == $comment->user_id || auth()->user()->isAdmin())
     <form action="{{ route('comment.destroy', $comment) }}" method="POST" class="">
         @csrf
         @method('DELETE')
