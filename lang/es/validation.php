@@ -212,5 +212,9 @@ return [
         'updated_at'               => 'actualizado el',
         'username'                 => 'usuario',
         'year'                     => 'año',
+        'category'                 => 'categoría',
+        'max_participants'         => 'máximo de participantes',
+        'start_date'               => 'fecha de inicio',
+        'end_date'                 => 'fecha de finalización',
     ],
 ];
