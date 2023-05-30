@@ -216,5 +216,7 @@ return [
         'max_participants'         => 'máximo de participantes',
         'start_date'               => 'fecha de inicio',
         'end_date'                 => 'fecha de finalización',
+        'today'                    => 'hoy',
+        'tomorrow'                 => 'mañana',
     ],
 ];
