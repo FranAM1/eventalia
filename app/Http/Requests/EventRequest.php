@@ -29,7 +29,7 @@ class EventRequest extends FormRequest
             'province' => 'required|integer',
             'max_participants' => 'required|integer|min:1',
             'city' => 'required|integer',
-            'start_date' => 'required|date|after:today|before:end_date',
+            'start_date' => 'required|date|after:tomorrow|before:end_date',
             'end_date' => 'required|date|after:start_date',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ];
