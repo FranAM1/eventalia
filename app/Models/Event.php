@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -62,8 +63,27 @@ class Event extends Model
         return $this->participants()->count();
     }
 
+    public function isUserRegistered($user)
+    {
+        return $this->participants()->where('user_id', $user->id)->exists();
+    }
+
     public function isFull()
     {
         return $this->getNumberParticipants() >= $this->max_participants;
+    }
+
+    public function isActive()
+    {
+        $currentDate = Carbon::now();
+        return $currentDate->betweenIncluded($this->start_date, $this->end_date);
+
+    }
+
+    public function isFinished()
+    {
+        $currentDate = Carbon::parse(date('Y-m-d H:i:s'));
+
+        return $currentDate->isAfter($this->end_date);
     }
 }
